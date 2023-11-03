@@ -60,3 +60,5 @@ if __name__ == "__main__":
     result = emplyee_task_tracker(data)
     print(result)
     # output:
+    # Scheduled Allocated Mints: 270 minutes
+    # Actual Utilization Mints: 210 minutes
