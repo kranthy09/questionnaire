@@ -23,11 +23,11 @@ def get_worked_time_pairs(time_sets):
     return set_
 
 
-def decimal_to_hours(decimal_number):
+def decimal_to_minutes(decimal_number):
     # converts decimal number into hours and minutes
     hours = int(decimal_number)
     minutes = int((decimal_number - hours) * 60)
-    return "{}hours {}minutes".format(hours, minutes)
+    return "{} minutes".format(hours * 60 + minutes)
 
 
 # solution
@@ -43,8 +43,8 @@ def emplyee_task_tracker(data):
         time_sets = get_time_set(date_object_1, date_object_2)
         actual_utilization_time_pairs = get_worked_time_pairs(time_sets)
         result |= actual_utilization_time_pairs
-    scheduled_allocated_mints = decimal_to_hours(actual_time_allocated)
-    actual_utilization_mints = decimal_to_hours(len(result) * (1 / 2))
+    scheduled_allocated_mints = decimal_to_minutes(actual_time_allocated)
+    actual_utilization_mints = decimal_to_minutes(len(result) * (1 / 2))
     return "Scheduled Allocated Mints: {} \nActual Utilization Mints: {}".format(
         scheduled_allocated_mints, actual_utilization_mints
     )
@@ -59,10 +59,4 @@ if __name__ == "__main__":
     )
     result = emplyee_task_tracker(data)
     print(result)
-
-
-# 1100 - 1159, 1200
-# 1200 - 1259, 1300
-# 1300 - 1359, 1400
-# 1400 - 1459, 1500
-# 1500 - 1530
+    # output:
